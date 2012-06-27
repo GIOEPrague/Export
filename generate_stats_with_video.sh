@@ -38,8 +38,11 @@ cat "top_night_coder_results.txt"
 # Clean videos
 find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && rm -Rf ./../export/$(basename {})$VIDEO_OUTPUT_PATH" \;
 
+# Load GRavatars
+find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && ../pull_images.pl" \;
+
 # Generate gource
-pull_images.pl
+
 find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && $GOURCE_SCRIPT_PATH ./../export/$(basename {})$VIDEO_OUTPUT_PATH $(basename {})" \;
 
 # Remove ugly .git_visualization
