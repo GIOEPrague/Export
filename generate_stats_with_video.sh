@@ -17,6 +17,9 @@ find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && rm -Rf ./../exp
 # Generate stats
 find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && $GITSTATS_SCRIPT_PATH . ./../export/$(basename {})$STATS_OUTPUT_PATH" \;
 
+# Remove ugly .git_stats
+rm -Rf "export/.git_stats"
+
 # Add, Commit and Push generated stats
 #find . -type d -maxdepth 1 -exec bash -c "cd '{}' && git add -A && git commit -m 'Generated git repository statistics' && git pull origin master && git push origin master" \;
 
@@ -37,6 +40,9 @@ find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && rm -Rf ./../exp
 
 # Generate gource
 find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && $GOURCE_SCRIPT_PATH ./../export/$(basename {})$VIDEO_OUTPUT_PATH" \;
+
+# Remove ugly .git_visualization
+rm -Rf "export/.git_visualization"
 
 # Add, Commit and Push generated videos
 #find . -type d -maxdepth 1 -exec bash -c "cd '{}' && git add -A && git commit -m 'Generated git repository visualization and statistics' && git pull origin master && git push origin master" \;
