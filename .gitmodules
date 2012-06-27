@@ -1,0 +1,12 @@
+[submodule "Constimator"]
+	path = Constimator
+	url = git@github.com:GIOEPrague/Constimator.git
+[submodule "Kanban-Board"]
+	path = Kanban-Board
+	url = git@github.com:GIOEPrague/Kanban-Board.git
+[submodule "Doomify"]
+	path = Doomify
+	url = git@github.com:GIOEPrague/Doomify.git
+[submodule "SonicDroid"]
+	path = SonicDroid
+	url = git@github.com:GIOEPrague/SonicDroid.git
