@@ -42,8 +42,7 @@ find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && rm -Rf ./../exp
 find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && ../pull_images.pl" \;
 
 # Generate gource
-
-find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && $GOURCE_SCRIPT_PATH ./../export/$(basename {})$VIDEO_OUTPUT_PATH $(basename {})" \;
+find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && $GOURCE_SCRIPT_PATH ./../export/$(basename {})$VIDEO_OUTPUT_PATH $(basename {}) {}" \;
 
 # Remove ugly .git_visualization
 rm -Rf "export/.git_visualization" "export/export_visualization" "export/videos_visualization"
@@ -57,5 +56,5 @@ rm -fR videos/*
 cp -f ./export/*/*.mp4 "./videos/"
 
 git add -A
-git commit -m "Generated git repository visualization and statistics"
+git commit -m "Generated updated git repository visualization and statistics"
 git push
