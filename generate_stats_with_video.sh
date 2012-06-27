@@ -39,7 +39,7 @@ cat "top_night_coder_results.txt"
 find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && rm -Rf ./../export/$(basename {})$VIDEO_OUTPUT_PATH" \;
 
 # Generate gource
-find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && $GOURCE_SCRIPT_PATH ./../export/$(basename {})$VIDEO_OUTPUT_PATH" \;
+find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && $GOURCE_SCRIPT_PATH ./../export/$(basename {})$VIDEO_OUTPUT_PATH $(basename {})" \;
 
 # Remove ugly .git_visualization
 rm -Rf "export/.git_visualization" "export/export_visualization" "export/videos_visualization"
