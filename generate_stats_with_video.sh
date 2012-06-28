@@ -42,7 +42,8 @@ find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && rm -Rf ./../exp
 find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && ../pull_images.pl" \;
 
 # Generate gource
-find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && $GOURCE_SCRIPT_PATH ./../export/$(basename {})$VIDEO_OUTPUT_PATH $(basename {}) {}" \;
+PWD="`pwd`"
+find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && $GOURCE_SCRIPT_PATH ./../export/$(basename {})$VIDEO_OUTPUT_PATH $(basename {}) $PWD$(basename {})"\;
 
 # Remove ugly .git_visualization
 rm -Rf "export/.git_visualization" "export/export_visualization" "export/videos_visualization"
