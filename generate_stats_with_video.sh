@@ -24,7 +24,7 @@ rm -Rf "export/.git_stats" "export/export_stats" "export/videos_stats"
 #find . -type d -maxdepth 1 -exec bash -c "cd '{}' && git add -A && git commit -m 'Generated git repository statistics' && git pull origin master && git push origin master" \;
 
 # Update Submodules
-git submodule update
+#git submodule update
 
 # Generate TOP Night Coder results
 rm -f "top_night_coder.txt"
@@ -43,7 +43,16 @@ find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && ../pull_images.
 
 # Generate gource
 PWD="`pwd`"
-find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}' && $GOURCE_SCRIPT_PATH ./../export/$(basename {})$VIDEO_OUTPUT_PATH $(basename {}) $PWD${$(basename {})##*/}" \;
+find . -type d -mindepth 1 -maxdepth 1 -exec bash -c "cd '{}';WAY=$(basename {}) && $GOURCE_SCRIPT_PATH ./../export/$(basename {})$VIDEO_OUTPUT_PATH $(basename {}) $PWD${WAY##*/}" \;
+
+#cd "Constimator/.git"
+#$GOURCE_SCRIPT_PATH "./../export/Constimator$VIDEO_OUTPUT_PATH" "Constimator" "foo"
+#cd "Doomify/.git"
+#$GOURCE_SCRIPT_PATH "./../export/Doomify$VIDEO_OUTPUT_PATH" "Doomify" "foo"
+#cd "Kanban-Board/.git"
+#$GOURCE_SCRIPT_PATH "./../export/Kanban-Board$VIDEO_OUTPUT_PATH" "Kanban-Board" "foo"
+#cd "SonicDroid/.git"
+#$GOURCE_SCRIPT_PATH "./../export/SonicDroid$VIDEO_OUTPUT_PATH" "SonicDroid" "foo"
 
 # Remove ugly .git_visualization
 rm -Rf "export/.git_visualization" "export/export_visualization" "export/videos_visualization"
